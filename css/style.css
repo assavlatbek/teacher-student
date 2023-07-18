@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("./dark.css");
 @import url("./teacher-card.css");
+@import url("./profile.css");
 
 * {
   margin: 0;
@@ -119,6 +120,10 @@ nav .logo h1 {
   font-size: 26px;
   font-weight: 600;
   letter-spacing: 1.2px;
+}
+nav .logo a {
+  text-decoration: none;
+  color: #000;
 }
 .search_add input {
   transition: 0.5s all;

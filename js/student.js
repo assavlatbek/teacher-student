@@ -41,6 +41,18 @@ open_modal.addEventListener("click", openModal);
 close_modal.addEventListener("click", closeModal);
 
 // work by API
+
+const getTeacherData = async () => {
+  try {
+    let res = await request(`${ENDPOINT}/teacher/${teacherID}`);
+    localStorage.setItem("avatar", res.data.avatar);
+    localStorage.setItem("firtName", res.data.firstName);
+  } catch (error) {
+    console.log(error);
+  }
+};
+getTeacherData();
+
 function getStudent({
   firstName,
   lastName,
@@ -63,11 +75,17 @@ function getStudent({
         <p><b>Phone:</b> ${phoneNumber}</p>
         <p><b>Email:</b> ${email}</p>
         <p><b>Birthdata:</b> ${birthday.slice(0, 10)}</p>
-        <p><b>Field:</b> ${field}</p>
+        <p><b>Field:</b> ${field}</p> 
         <div class="btn-group">
-          <button class="btn-edit" onclick="editStudent(${id})">Edit</button>
+          <button class="btn-edit" onclick="seveStudentData(${id})">Profile</button>
           <button class="btn-delete" onclick='deleteStudent(${id}, ${teacherID})'>Delete</button>
-          <button class="btn-see">See Teacher</button>
+        </div>
+        <div class="mini-teacher-div">
+          <img src="${localStorage.getItem("avatar")}" alt=""/>
+          <div>
+            <p>${localStorage.getItem("firtName")}</p>
+            <p>Teacher</p>
+          </div>
         </div>
       </div>
     </div>
@@ -192,4 +210,8 @@ async function sortByBirth() {
   newRes.map((el) => {
     students_row.innerHTML += getStudent(el);
   });
+}
+function seveStudentData(id) {
+  localStorage.setItem("profileIDS", id);
+  location.href = "/profile.html";
 }

@@ -7,6 +7,9 @@
   background: #313131;
   box-shadow: rgba(146, 146, 146, 0.35) 0px 5px 15px;
 }
+.dark .logo a {
+  color: #fff !important;
+}
 .dark .teacher-modal {
   background: rgba(0, 0, 0, 0.569);
 }

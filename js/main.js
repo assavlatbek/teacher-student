@@ -61,9 +61,9 @@ function getTeacher({
         <p><b>Phone:</b> ${phoneNumber}</p>
         <p><b>Email:</b> ${email}</p>
         <div class="btn-group">
-          <button class="btn-edit" onclick="editTeacher(${id})">Edit</button>
+          <button class="btn-edit" onclick="saveProfileData(${id})">Profile</button>
           <button class="btn-delete" onclick='deleteTeacher(${id})'>Delete</button>
-          <a onclick="saveData(${id})" class="btn-see">See Students</a>
+          <a onclick="saveData(${id})" class="btn-see">Students</a>
         </div>
       </div>
     </div>
@@ -209,4 +209,8 @@ async function sortByLastName() {
 async function saveData(id) {
   localStorage.setItem("teacherID", id);
   location.href = "/students.html";
+}
+async function saveProfileData(id) {
+  localStorage.setItem("profileIDT", id);
+  location.href = "/profile.html";
 }
